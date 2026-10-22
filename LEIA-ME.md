@@ -56,10 +56,12 @@ ARQUITETURA PROPOSTA DO GERADOR (22/10, sem custo):
 
 REPOSITÓRIO (22/10, chat local): conteúdo do zip descompactado em Desktop\Projeto Portal IA\today-ia-br (a pasta-mãe ignora esta subpasta no próprio git). Repositório privado vinigarbot/today-ia-br criado pelo gh já autenticado na máquina; primeiro commit enviado com o ok dele; os 16 arquivos conferidos no GitHub, idênticos aos locais.
 
-PENDÊNCIA DA VEZ: liberar o app do Claude no GitHub para o today-ia-br (github.com/settings/installations, Claude → Configure). A página pede o código de verificação da conta, que é dele. O app também tem um pedido de permissões novas ("Review request") ainda não aceito; ler antes de decidir.
+APP DO CLAUDE (22/10): liberado por ele para o today-ia-br e conferido na página de instalação (repositórios selecionados: casadir, casadir-auditoria, today-ia-br). Continua em aberto um pedido de permissões novas do app ("Review request"), ainda não lido nem aceito.
+
+PENDÊNCIA DA VEZ: gerador (site estático a partir da maquete v3, travas e fila de aprovação por pull request) — Opus · extra.
 
 FILA
-1. ~~Criar o repositório privado no GitHub~~ (feito em 22/10). Falta liberar o app do Claude para ele — Sonnet · baixo
+1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
 2. Fontes de dados e de notícia por tema, com custo e termos de uso (parte do plano de conteúdo) — Opus · alto
 3. Gerador automático com fila de aprovação diária (o do Mall Journal está só no PC, em Desktop\Projeto Portal Shoppings) — Opus · extra
 4. Identidade visual e maquete dos dois portais — Opus · alto
