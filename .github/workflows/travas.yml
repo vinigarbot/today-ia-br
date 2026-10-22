@@ -1,0 +1,30 @@
+# Em todo pull request: travas das matérias, testes do gerador e prévia do site.
+# Com erro, a verificação fica vermelha no app do GitHub e a matéria não deve ser aprovada.
+# O plano gratuito não bloqueia o merge de repositório privado; quem garante que nada sem aprovação vai ao ar
+# é o gerador de produção (publicar.yml), que confere de novo as travas e a aprovação de cada matéria.
+name: travas
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  travas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}  # o ramo como está, sem o merge de teste que o GitHub monta
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Travas das matérias
+        run: python -I gerador/travas.py
+      - name: Testes do gerador
+        run: python -I -m unittest discover -s testes
+      - name: Prévia do site
+        run: python -I gerador/gerar_site.py --rascunhos

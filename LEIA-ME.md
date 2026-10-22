@@ -58,14 +58,34 @@ REPOSITÓRIO (22/10, chat local): conteúdo do zip descompactado em Desktop\Proj
 
 APP DO CLAUDE (22/10): liberado por ele para o today-ia-br e conferido na página de instalação (repositórios selecionados: casadir, casadir-auditoria, today-ia-br). Continua em aberto um pedido de permissões novas do app ("Review request"), ainda não lido nem aceito.
 
-PENDÊNCIA DA VEZ: gerador (site estático a partir da maquete v3, travas e fila de aprovação por pull request) — Opus · extra.
+GERADOR (22/10, chat local, ramo "gerador"; só commit local até o ok dele)
+- O que é: Python sem dependências (mesmo método do gerador do Mall Journal), em gerador/. Uso: python -I gerador/gerar_site.py (conferência), --rascunhos (prévia com os espaços de anúncio, sem indexação), --producao (o que o GitHub Actions roda). Formato da matéria e travas: materias/LEIA-ME.md. Testes: python -I -m unittest discover -s testes (64 testes; contraprova por mutação feita em 5 travas).
+- Páginas: inicial, matéria, editorias (só as que têm matéria), 404, sitemap.xml, feed.xml (RSS), robots.txt, _headers, versao.txt (carimbo do commit), dados estruturados NewsArticle. Visual: CSS da maquete v3 com 8 trocas conferidas; fotos de computador e celular conferidas contra maquete/fotos em 22/10, sem rolagem lateral em 375 px.
+- Trilha: sai do git. Rascunho = commit da redação (com "Co-Authored-By: Claude"); ajuste humano = edição feita por ele no GitHub; aprovação = merge feito por ele no GitHub. Mostra o primeiro trecho trocado, como na maquete.
+- Radar do PL 2338/2023: consulta a API da Câmara a cada geração; se falhar, usa dados/radar.json (consulta de 22/10: chegou à Câmara em 17/03/2025; última movimentação 02/09/2026, "Aguardando Parecer").
+- Fluxo no GitHub: .github/workflows/travas.yml (todo pull request: travas, testes e prévia) e publicar.yml (08:00 e 18:00 de Brasília, a cada merge na main e por botão; desligado até a variável PUBLICAR_ATIVO = sim; envio à Cloudflare só com os segredos CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID). Roteiro de leitura do pull request em .github/pull_request_template.md.
+- Decisões técnicas do Claude (ele veta):
+  1. Aprovação só vale com merge humano feito pelo GitHub (o GitHub assina como noreply@github.com). Merge ou commit local não conta, e mudança da redação depois do merge tira a matéria do ar até novo merge. Motivo: o plano gratuito não oferece proteção de ramo em repositório privado; a conferência no gerador é a trava real (régua 8).
+  2. "venda", "vender", "comprar" e "pode subir" viram alerta para ele, não bloqueio, em matéria que toca cripto ou bolsa. Motivo: "a venda da divisão" é noticiário comum. "compre", "vale a pena investir", "preço-alvo", "hora de vender" e afins bloqueiam.
+  3. Expressões irmãs proibidas no título, além das três dele: inacreditável, bombástico, imperdível, ninguém esperava, você precisa ver, última hora.
+  4. Regras mecânicas novas: número do título tem de estar no texto; todo parágrafo, lista e quadro com chamada de fonte; aspas de no máximo 25 palavras; nenhum link solto no texto.
+  5. Anúncios no texto conforme o tamanho (Better Ads no celular): o primeiro só com 4 ou mais parágrafos, o segundo só com 8 ou mais. Sem AdSense configurado, nenhum espaço aparece no site (sem caixa vazia). A âncora do celular fica com os anúncios automáticos do próprio AdSense.
+  6. "Buscar no arquivo" e o botão "Como usamos IA" ficam fora até existirem; links de Privacidade e Relatar erro só aparecem com a página e o e-mail prontos.
+  7. Envio à Cloudflare Pages pelo GitHub Actions (envio direto), e não pela integração Git da Cloudflare, porque a integração não publica no horário.
+- Ponto para ele decidir: o painel "Mapa de atenção · título" da maquete mostra "● ao vivo" e pesos como 0.89, mas o desenho é sorteado a partir do título, não é atenção real de um modelo. Recomendação: trocar o selo por "desenho do título" e tirar os números, para não afirmar o que não é (premissa de verdade com fonte). Até a decisão, sai como na maquete.
+
+PENDÊNCIA DA VEZ: ok dele para enviar o ramo "gerador" ao GitHub e abrir o pull request, e para deixar o repositório só com merge do tipo "Create a merge commit" (a trilha depende disso) — Sonnet · baixo.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
-2. Fontes de dados e de notícia por tema, com custo e termos de uso (parte do plano de conteúdo) — Opus · alto
-3. Gerador automático com fila de aprovação diária (o do Mall Journal está só no PC, em Desktop\Projeto Portal Shoppings) — Opus · extra
-4. Identidade visual e maquete dos dois portais — Opus · alto
-5. Política de privacidade, aviso de que não há recomendação de investimento e página "Como usamos IA", nos dois idiomas — Opus · alto
+2. ~~Gerador: site a partir da maquete v3, travas e fila de aprovação por pull request~~ (feito em 22/10, falta o envio)
+3. Tarefa agendada das 06:00 (redação: coleta, escreve, abre o pull request); roda sozinha, só com o ok dele — Opus · alto
+4. Hospedagem na Cloudflare Pages e apontamento do today.ia.br (conta, segredos e DNS são dele; o Claude deixa o passo a passo) — Sonnet · médio
+5. Política de privacidade, aviso de não recomendação de investimento e página "Como usamos IA" (o gerador já lê paginas/privacidade.md e paginas/como-usamos-ia.md) — Opus · alto
+6. Lista completa de fontes oficiais (gerador/fontes_oficiais.json; Microsoft, Nvidia, Hugging Face, Mistral, AWS, MCTI e ANPD ainda não testadas) — Opus · alto
+7. Cartão para redes (og:image) e logotipo em PNG para os dados estruturados — Opus · médio
+8. Busca no arquivo e menu no celular (a maquete não tem menu no celular) — Opus · médio
+9. Revisão completa do módulo antes de ligar a publicação — Opus · extra
 
 COMO TRABALHAR COMIGO
 - Sempre em português do Brasil, inclusive nos commits. Me tratar por "você".
