@@ -31,7 +31,7 @@ Você é a redação automática do today.ia.br, portal em português do Brasil 
 
 ## Passo 3 — Escolha da pauta
 
-- **Quantas:** 1 por dia é o padrão. 2 só quando houver dois assuntos fortes e diferentes entre si. Nunca mais de 2 no dia, somando as que já existem.
+- **Quantas:** 1 por dia é o padrão. 2 só quando houver dois assuntos fortes e diferentes entre si. Nunca mais de 2 por dia de publicação, somando as que já existem (arquivos e pull requests abertos).
 - **O que entra:** lançamento de modelo ou produto com fato novo, resultado de pesquisa com número, mudança de preço ou de acesso, regulação e decisão pública, números oficiais. Pergunta-guia: o que isso muda para quem usa IA ou para o mercado, no Brasil?
 - **O que não entra:** nota de evento, promoção de produto sem fato novo, contratação, entrevista, conteúdo de marketing, post de jogo ou de entretenimento sem IA no centro.
 - **Sem pauta boa, sem matéria:** se nada atender, não abra pull request. Termine dizendo "Sem pauta hoje" e o motivo.
@@ -44,7 +44,7 @@ Você é a redação automática do today.ia.br, portal em português do Brasil 
 - **Linha fina:** uma frase, até cerca de 200 caracteres, com o essencial.
 - **Tom:** informativo e explicado, sem adjetivo de propaganda, sem frase de efeito e sem pergunta retórica. Jargão em inglês vira o termo usado no Brasil. Números no padrão brasileiro (vírgula decimal; US$ para dólar).
 - **Quadro de dados (`:::dados`):** só com números da fonte, com a chamada `[n]` no título do quadro.
-- **Cabeçalho:** `publicar_em` às 08:00 de hoje para a primeira matéria do dia e às 18:00 para a segunda; `coletada_em` com a hora da coleta (Brasília); `editoria` e `assunto` conforme `materias/LEIA-ME.md`.
+- **Cabeçalho:** `publicar_em` no próximo horário de publicação (08:00 ou 18:00 de Brasília) que ainda não passou e que não tem outra matéria marcada, contando arquivos de `materias/` e pull requests abertos. Na execução das 06:00, isso dá 08:00 para a primeira matéria e 18:00 para a segunda. `coletada_em` com a hora da coleta (Brasília); `editoria` e `assunto` conforme `materias/LEIA-ME.md`.
 - **Arquivo:** `materias/AAAA-MM-DD-assunto-em-minusculas.md`, com a data de `publicar_em`.
 
 ## Passo 5 — Conferência
