@@ -1,0 +1,16 @@
+{
+  "_leia": "Fontes que a redação diária consulta. 'rss': feed lido pelo coletor; 'pagina': sem feed, a redação visita a página. Todas precisam estar em gerador/fontes_oficiais.json. Feeds testados em 23/10/2026.",
+  "rss": [
+    {"quem": "OpenAI", "url": "https://openai.com/news/rss.xml"},
+    {"quem": "Google DeepMind", "url": "https://deepmind.google/blog/rss.xml"},
+    {"quem": "Google", "url": "https://blog.google/technology/ai/rss/"},
+    {"quem": "Hugging Face", "url": "https://huggingface.co/blog/feed.xml"},
+    {"quem": "Nvidia", "url": "https://blogs.nvidia.com/feed/"},
+    {"quem": "Mistral AI", "url": "https://mistral.ai/rss.xml"}
+  ],
+  "pagina": [
+    {"quem": "Anthropic", "url": "https://www.anthropic.com/news"},
+    {"quem": "Meta AI", "url": "https://ai.meta.com/blog/"}
+  ],
+  "camara": {"id": 2487262, "nome": "PL 2338/2023 (marco legal da IA)", "pagina": "https://www.camara.leg.br/propostas-legislativas/2487262", "dias": 7}
+}

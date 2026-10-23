@@ -78,12 +78,22 @@ CONTRAPROVA (23/10): a contraprova por mutação de 22/10 rodou com erro de impo
 
 ENVIO (22/10, com o ok dele): ramo "gerador" enviado e pull request #1 aberto (https://github.com/vinigarbot/today-ia-br/pull/1). Repositório ajustado para aceitar só "Create a merge commit" (squash e rebase desligados), conferido pela API do GitHub.
 
-PENDÊNCIA DA VEZ: ele aprovar o pull request #1 (merge) depois da verificação "travas" verde; a troca do mapa de atenção foi junto, no mesmo pull request — Sonnet · baixo.
+MERGE DO #1 (23/10, conferido às 02:00 UTC): ele disse ter feito o merge, mas o GitHub mostrava o pull request #1 aberto, com a verificação verde e sem conflito, e a main ainda em 0bce45d. Provável falta do segundo toque ("Confirm merge"). O Claude não faz esse merge: ele é a aprovação dele.
+
+REDAÇÃO DIÁRIA (23/10, ramo "redacao", a partir do "gerador"; só commit local)
+- redacao/coletar.py: lê os feeds de redacao/fontes.json (OpenAI, Google DeepMind, Google, Hugging Face, Nvidia e Mistral, todos testados em 23/10 com resposta 200) e as movimentações do PL 2338/2023 na API da Câmara; deixa de fora link fora da lista oficial e o que já foi citado em matéria; fonte que falha não derruba as outras. Anthropic e Meta AI não têm feed: a redação visita as páginas. Ensaio real em 23/10: 43 itens nas últimas 72 horas.
+- redacao/PROMPT.md: as instruções da tarefa, passo a passo (situação do dia, coleta, escolha da pauta, redação, travas, um ramo claude/materia-... e um pull request por matéria, resumo final). Regras: só fonte oficial lida no dia, nada de memória nem de busca como fonte, sem pauta boa não abre pull request, nunca mexe na main.
+- Testes: 75 no total (10 do coletor, sem internet); contraprova por mutação em 2 regras do coletor.
+- Como a tarefa vai ser criada (só com o ok dele, porque roda sozinha): rotina na nuvem da Anthropic (claude.ai/code/routines), ambiente "Default", repositório vinigarbot/today-ia-br, todo dia às 09:00 UTC (06:00 de Brasília), mensagem "Siga redacao/PROMPT.md". Modelo recomendado: Opus 5.5, porque é texto que vai ao ar; trade-off: consome mais da assinatura que o Sonnet 5.5.
+- Antes da rotina diária, um ensaio de execução única, para conferir três coisas que só a nuvem responde: se a rede do ambiente lê as fontes (na sessão de 22/10 ela bloqueava a leitura de páginas), se a sessão consegue abrir o pull request, e se os commits saem com a linha "Co-Authored-By: Claude" (a trilha e a aprovação dependem dela).
+- Rede do ambiente (configuração de segurança, passo dele): se o ensaio mostrar bloqueio, liberar só estes domínios na rede do ambiente "Default" em claude.ai/code: openai.com, deepmind.google, blog.google, huggingface.co, blogs.nvidia.com, mistral.ai, www.anthropic.com, ai.meta.com, dadosabertos.camara.leg.br, www.camara.leg.br, www.gov.br.
+
+PENDÊNCIA DA VEZ: ele fazer o merge do pull request #1 (falta o "Confirm merge"). Depois: ok dele para enviar o ramo "redacao" e abrir o pull request #2, e ok para o ensaio único da tarefa — Sonnet · baixo.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
 2. ~~Gerador: site a partir da maquete v3, travas e fila de aprovação por pull request~~ (feito em 22/10; pull request #1 aguardando o merge dele)
-3. Tarefa agendada das 06:00 (redação: coleta, escreve, abre o pull request); roda sozinha, só com o ok dele — Opus · alto
+3. Tarefa agendada das 06:00 (redação: coleta, escreve, abre o pull request); roda sozinha, só com o ok dele — Opus · alto. Preparada em 23/10 no ramo "redacao" (coletor, instruções e testes); falta o envio, o ensaio único e a criação da rotina
 4. Hospedagem na Cloudflare Pages e apontamento do today.ia.br (conta, segredos e DNS são dele; o Claude deixa o passo a passo) — Sonnet · médio
 5. Política de privacidade, aviso de não recomendação de investimento e página "Como usamos IA" (o gerador já lê paginas/privacidade.md e paginas/como-usamos-ia.md) — Opus · alto
 6. Lista completa de fontes oficiais (gerador/fontes_oficiais.json; Microsoft, Nvidia, Hugging Face, Mistral, AWS, MCTI e ANPD ainda não testadas) — Opus · alto
