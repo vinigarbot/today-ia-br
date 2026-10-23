@@ -74,11 +74,13 @@ GERADOR (22/10, chat local, ramo "gerador"; só commit local até o ok dele)
   7. Envio à Cloudflare Pages pelo GitHub Actions (envio direto), e não pela integração Git da Cloudflare, porque a integração não publica no horário.
 - Ponto para ele decidir: o painel "Mapa de atenção · título" da maquete mostra "● ao vivo" e pesos como 0.89, mas o desenho é sorteado a partir do título, não é atenção real de um modelo. Recomendação: trocar o selo por "desenho do título" e tirar os números, para não afirmar o que não é (premissa de verdade com fonte). Até a decisão, sai como na maquete.
 
-PENDÊNCIA DA VEZ: ok dele para enviar o ramo "gerador" ao GitHub e abrir o pull request, e para deixar o repositório só com merge do tipo "Create a merge commit" (a trilha depende disso) — Sonnet · baixo.
+ENVIO (22/10, com o ok dele): ramo "gerador" enviado e pull request #1 aberto (https://github.com/vinigarbot/today-ia-br/pull/1). Repositório ajustado para aceitar só "Create a merge commit" (squash e rebase desligados), conferido pela API do GitHub.
+
+PENDÊNCIA DA VEZ: ele aprovar o pull request #1 (merge) depois da verificação "travas" verde, e decidir o painel do mapa de atenção — Sonnet · baixo.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
-2. ~~Gerador: site a partir da maquete v3, travas e fila de aprovação por pull request~~ (feito em 22/10, falta o envio)
+2. ~~Gerador: site a partir da maquete v3, travas e fila de aprovação por pull request~~ (feito em 22/10; pull request #1 aguardando o merge dele)
 3. Tarefa agendada das 06:00 (redação: coleta, escreve, abre o pull request); roda sozinha, só com o ok dele — Opus · alto
 4. Hospedagem na Cloudflare Pages e apontamento do today.ia.br (conta, segredos e DNS são dele; o Claude deixa o passo a passo) — Sonnet · médio
 5. Política de privacidade, aviso de não recomendação de investimento e página "Como usamos IA" (o gerador já lê paginas/privacidade.md e paginas/como-usamos-ia.md) — Opus · alto
