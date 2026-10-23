@@ -68,7 +68,11 @@ def fmt(n: float) -> str:
 
 
 def mapa_atencao(tokens: list[str]) -> str:
-    """As palavras do título ligadas por arcos de peso sorteado a partir do próprio título."""
+    """As palavras do título ligadas por arcos de peso sorteado a partir do próprio título.
+
+    É um desenho, não a atenção de um modelo: por isso sai sem números e com o selo "desenho do título"
+    (decisão dele de 23/10/2026, no lugar do "● ao vivo" e dos pesos da maquete).
+    """
     if len(tokens) < 2:
         return ""
     w, h, base, pad = 640, 400, 316, 70
@@ -85,9 +89,6 @@ def mapa_atencao(tokens: list[str]) -> str:
         partes.append(f'<path d="M{fmt(x1)} {base} Q{fmt(meio)} {fmt(base - alt * 2)} {fmt(x2)} {base}" fill="none" '
                       f'stroke="{VERDE if forte else CIANO}" stroke-width="{1.6 if forte else .9}" '
                       f'opacity="{.95 if forte else round(.18 + p["w"] * .5, 2):.2f}" style="animation-delay:{k * .06:.2f}s"/>')
-        if forte:
-            partes.append(f'<text x="{fmt(meio)}" y="{fmt(base - alt - 8)}" text-anchor="middle" fill="{VERDE}" '
-                          f'font-family="Martian Mono" font-size="11">{.5 + p["w"] * .49:.2f}</text>')
     for i, tk in enumerate(tokens):
         x = fmt(xs[i])
         partes.append(f'<rect x="{fmt(xs[i] - 3)}" y="{base - 3}" width="6" height="6" fill="#e9eef2"/>')

@@ -33,6 +33,12 @@ class Desenho(unittest.TestCase):
                          ["Os", "agentes", "de", "IA", "já", "usam", "o", "computador", "sozinhos"])
         self.assertEqual(len(tokens_titulo(" ".join(["palavra"] * 15))), 10)
 
+    def test_mapa_sem_numeros(self):
+        # decisão dele de 23/10/2026: é desenho, não atenção medida; nenhum peso escrito no mapa
+        mapa = mapa_atencao(tokens_titulo("Os agentes de IA já usam o computador sozinhos"))
+        self.assertIn("<path", mapa)
+        self.assertNotRegex(mapa, r">\s*\d+[.,]\d+\s*<")
+
     def test_mapa_escapa_texto_e_exige_duas_palavras(self):
         self.assertEqual(mapa_atencao(["só"]), "")
         self.assertNotIn("<b>", mapa_atencao(["a", "<b>"]))

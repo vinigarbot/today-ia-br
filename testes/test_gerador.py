@@ -70,6 +70,8 @@ class SiteDeExemplo(unittest.TestCase):
         inicial = ler(self.site, "index.html")
         self.assertIn('<h1><a href="/agentes-usam-computador/">', inicial)
         self.assertIn('class="mapa"', inicial)
+        self.assertIn("<b>desenho do título</b>", inicial)
+        self.assertNotIn("ao vivo", inicial)
 
     def test_aviso_de_ia_em_toda_materia(self):
         for pagina in self.previa.glob("*/index.html"):

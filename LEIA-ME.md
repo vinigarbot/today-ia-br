@@ -59,7 +59,7 @@ REPOSITÓRIO (22/10, chat local): conteúdo do zip descompactado em Desktop\Proj
 APP DO CLAUDE (22/10): liberado por ele para o today-ia-br e conferido na página de instalação (repositórios selecionados: casadir, casadir-auditoria, today-ia-br). Continua em aberto um pedido de permissões novas do app ("Review request"), ainda não lido nem aceito.
 
 GERADOR (22/10, chat local, ramo "gerador"; só commit local até o ok dele)
-- O que é: Python sem dependências (mesmo método do gerador do Mall Journal), em gerador/. Uso: python -I gerador/gerar_site.py (conferência), --rascunhos (prévia com os espaços de anúncio, sem indexação), --producao (o que o GitHub Actions roda). Formato da matéria e travas: materias/LEIA-ME.md. Testes: python -I -m unittest discover -s testes (64 testes; contraprova por mutação feita em 5 travas).
+- O que é: Python sem dependências (mesmo método do gerador do Mall Journal), em gerador/. Uso: python -I gerador/gerar_site.py (conferência), --rascunhos (prévia com os espaços de anúncio, sem indexação), --producao (o que o GitHub Actions roda). Formato da matéria e travas: materias/LEIA-ME.md. Testes: python -I -m unittest discover -s testes (65 testes; contraprova por mutação: ver CONTRAPROVA abaixo).
 - Páginas: inicial, matéria, editorias (só as que têm matéria), 404, sitemap.xml, feed.xml (RSS), robots.txt, _headers, versao.txt (carimbo do commit), dados estruturados NewsArticle. Visual: CSS da maquete v3 com 8 trocas conferidas; fotos de computador e celular conferidas contra maquete/fotos em 22/10, sem rolagem lateral em 375 px.
 - Trilha: sai do git. Rascunho = commit da redação (com "Co-Authored-By: Claude"); ajuste humano = edição feita por ele no GitHub; aprovação = merge feito por ele no GitHub. Mostra o primeiro trecho trocado, como na maquete.
 - Radar do PL 2338/2023: consulta a API da Câmara a cada geração; se falhar, usa dados/radar.json (consulta de 22/10: chegou à Câmara em 17/03/2025; última movimentação 02/09/2026, "Aguardando Parecer").
@@ -72,11 +72,13 @@ GERADOR (22/10, chat local, ramo "gerador"; só commit local até o ok dele)
   5. Anúncios no texto conforme o tamanho (Better Ads no celular): o primeiro só com 4 ou mais parágrafos, o segundo só com 8 ou mais. Sem AdSense configurado, nenhum espaço aparece no site (sem caixa vazia). A âncora do celular fica com os anúncios automáticos do próprio AdSense.
   6. "Buscar no arquivo" e o botão "Como usamos IA" ficam fora até existirem; links de Privacidade e Relatar erro só aparecem com a página e o e-mail prontos.
   7. Envio à Cloudflare Pages pelo GitHub Actions (envio direto), e não pela integração Git da Cloudflare, porque a integração não publica no horário.
-- Ponto para ele decidir: o painel "Mapa de atenção · título" da maquete mostra "● ao vivo" e pesos como 0.89, mas o desenho é sorteado a partir do título, não é atenção real de um modelo. Recomendação: trocar o selo por "desenho do título" e tirar os números, para não afirmar o que não é (premissa de verdade com fonte). Até a decisão, sai como na maquete.
+MAPA DE ATENÇÃO (23/10, decisão dele): o selo "● ao vivo" virou "desenho do título" e os pesos (0.89 etc.) saíram do desenho, porque o desenho é sorteado a partir do título e não é a atenção real de um modelo. A maquete em maquete/ fica como registro do que foi aprovado em 22/10. Foto conferida em 23/10.
+
+CONTRAPROVA (23/10): a contraprova por mutação de 22/10 rodou com erro de importação (python -I não põe a pasta atual no caminho) e não valia. Refeita em 23/10 com "python -I -m unittest discover -s testes -k NOME": 7 mutações (5 travas, o selo e os números do mapa), e em cada uma o teste rodou e falhou, como deve.
 
 ENVIO (22/10, com o ok dele): ramo "gerador" enviado e pull request #1 aberto (https://github.com/vinigarbot/today-ia-br/pull/1). Repositório ajustado para aceitar só "Create a merge commit" (squash e rebase desligados), conferido pela API do GitHub.
 
-PENDÊNCIA DA VEZ: ele aprovar o pull request #1 (merge) depois da verificação "travas" verde, e decidir o painel do mapa de atenção — Sonnet · baixo.
+PENDÊNCIA DA VEZ: ele aprovar o pull request #1 (merge) depois da verificação "travas" verde; a troca do mapa de atenção foi junto, no mesmo pull request — Sonnet · baixo.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)

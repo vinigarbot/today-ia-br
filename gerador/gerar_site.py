@@ -306,7 +306,7 @@ def inicial(ctx: dict, publicadas: list[dict], agendadas: list[dict]) -> str:
 <span class="chip">{minutos_leitura(m)} min de leitura</span><span class="chip">Publicada {quando}</span></div>
 </div>
 <aside class="attn"><span class="corner tl"></span><span class="corner br"></span>
-<header><span>Mapa de atenção · título</span><b>● ao vivo</b></header>
+<header><span>Mapa de atenção · título</span><b>desenho do título</b></header>
 <div class="viz">{mapa_atencao(tokens_titulo(m["titulo_puro"]))}</div>
 <footer><div>Fontes<b>{fontes} {"oficial" if fontes == 1 else "oficiais"}</b></div><div>Trechos com fonte<b>{trechos}/{trechos}</b></div><div>Ajustes humanos<b>{t["ajustes"]}</b></div></footer>
 </aside></div></section>""")
