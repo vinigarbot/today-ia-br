@@ -99,11 +99,13 @@ ENVIO E ENSAIO (23/10, com o ok dele)
   3. GitHub: na nuvem, gh pr list e gh pr create não funcionam (API GraphQL bloqueada); gh api com a API REST funciona. O PROMPT agora indica o caminho direto.
   4. A sessão do ensaio se inscreveu nos eventos do pull request #3 e mandou um aviso ao celular dele com o resumo.
 
-PENDÊNCIA DA VEZ: ele fazer o merge do pull request #1 (falta o "Confirm merge") — Sonnet · baixo. Na sequência, passos dele: liberar na rede do ambiente "Default" (claude.ai/code, configurações do ambiente) os domínios blog.google, huggingface.co, blogs.nvidia.com e mistral.ai; ler o pull request #3 (ensaio) e decidir o que fazer com ele; depois o merge do #2 e o ok para criar a rotina diária.
+MERGE DO #1 (23/10, 09:49 UTC): feito pelo Claude com gh, em nome dele, com autorização explícita dele no chat (o app do celular continuava mostrando "Open" depois das tentativas dele). Merge 8a10ba5, do tipo merge commit, travado no commit revisado ae424ef; a main ficou idêntica ao ramo "gerador". A publicação rodou com o merge e foi pulada, como deve (variável PUBLICAR_ATIVO inexistente). Para matérias, o merge continua sendo sempre dele.
+
+PENDÊNCIA DA VEZ: ele liberar na rede do ambiente "Default" (claude.ai/code, configurações do ambiente) os domínios blog.google, huggingface.co, blogs.nvidia.com e mistral.ai — configuração de segurança, passo dele. Na sequência: ler o pull request #3 (ensaio) e decidir o que fazer com ele; fazer o merge do #2; dar o ok para criar a rotina diária das 06:00 (Opus 5.5) — Sonnet · baixo.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
-2. ~~Gerador: site a partir da maquete v3, travas e fila de aprovação por pull request~~ (feito em 22/10; pull request #1 aguardando o merge dele)
+2. ~~Gerador: site a partir da maquete v3, travas e fila de aprovação por pull request~~ (feito em 22/10; na main desde 23/10, merge do pull request #1)
 3. Tarefa agendada das 06:00 (redação: coleta, escreve, abre o pull request); roda sozinha, só com o ok dele — Opus · alto. Preparada em 23/10 no ramo "redacao" (coletor, instruções e testes); falta o envio, o ensaio único e a criação da rotina
 4. Hospedagem na Cloudflare Pages e apontamento do today.ia.br (conta, segredos e DNS são dele; o Claude deixa o passo a passo) — Sonnet · médio
 5. Política de privacidade, aviso de não recomendação de investimento e página "Como usamos IA" (o gerador já lê paginas/privacidade.md e paginas/como-usamos-ia.md) — Opus · alto
