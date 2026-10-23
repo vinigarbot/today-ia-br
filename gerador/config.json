@@ -1,0 +1,30 @@
+{
+  "url": "https://today.ia.br",
+  "nome": "today.ia.br",
+  "descricao": "Notícias de inteligência artificial em português, escritas a partir de fontes oficiais e revisadas antes da publicação.",
+  "email_redacao": "",
+  "cloudflare_analytics_token": "",
+  "adsense": {
+    "cliente": "",
+    "blocos": {
+      "topo": "",
+      "texto": "",
+      "lateral": "",
+      "feed": "",
+      "meio": "",
+      "patrocinado": ""
+    }
+  },
+  "pl_2338": {
+    "id_camara": 2487262,
+    "pagina": "https://www.camara.leg.br/propostas-legislativas/2487262"
+  },
+  "termos_investimento": [
+    "\\bcripto", "\\bbitcoin", "\\bethereum", "\\bblockchain", "\\bstablecoin",
+    "\\bbolsa de valores", "\\bbolsas? (americanas?|brasileira)", "\\bmercado de ações", "\\bações (ordinárias|preferenciais|negociadas)",
+    "\\b(preço|valor|cotação) das ações", "\\bações na bolsa", "\\bacionistas?\\b",
+    "\\bb3\\b", "\\bibovespa", "\\bnasdaq", "\\bwall street", "\\binvestidor", "\\binvestimentos? financeiros?",
+    "\\bfundos? de investimento", "\\bcorretora"
+  ],
+  "siglas_permitidas": ["NVIDIA", "OPENAI", "UNESCO", "UNICEF", "BACEN", "SERPRO", "DATAPREV", "EMBRAPA", "FAPESP", "ANATEL"]
+}

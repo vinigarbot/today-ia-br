@@ -1,0 +1,23 @@
+{
+  "_leia": "Domínios aceitos como fonte oficial (decisão dele de 22/10/2026: empresas de IA, órgãos públicos e dados abertos). Vale o domínio e os seus subdomínios. Fora desta lista, a matéria não passa. 'testada' é a data em que a fonte respondeu; vazio = ainda não testada (lista completa: pendência própria).",
+  "dominios": [
+    {"dominio": "openai.com", "quem": "OpenAI", "testada": "2026-10-22"},
+    {"dominio": "deepmind.google", "quem": "Google DeepMind", "testada": "2026-10-22"},
+    {"dominio": "blog.google", "quem": "Google", "testada": ""},
+    {"dominio": "anthropic.com", "quem": "Anthropic", "testada": "2026-10-22"},
+    {"dominio": "ai.meta.com", "quem": "Meta AI", "testada": "2026-10-22"},
+    {"dominio": "microsoft.com", "quem": "Microsoft", "testada": ""},
+    {"dominio": "nvidia.com", "quem": "Nvidia", "testada": ""},
+    {"dominio": "huggingface.co", "quem": "Hugging Face", "testada": ""},
+    {"dominio": "mistral.ai", "quem": "Mistral AI", "testada": ""},
+    {"dominio": "aws.amazon.com", "quem": "AWS", "testada": ""},
+    {"dominio": "camara.leg.br", "quem": "Câmara dos Deputados", "testada": "2026-10-22"},
+    {"dominio": "senado.leg.br", "quem": "Senado Federal", "testada": "2026-10-22"},
+    {"dominio": "gov.br", "quem": "Governo federal", "testada": ""}
+  ],
+  "sufixos_publicos": [
+    {"sufixo": ".gov.br", "quem": "Órgão público"},
+    {"sufixo": ".leg.br", "quem": "Poder Legislativo"},
+    {"sufixo": ".jus.br", "quem": "Poder Judiciário"}
+  ]
+}
