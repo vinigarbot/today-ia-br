@@ -88,7 +88,18 @@ REDAÇÃO DIÁRIA (23/10, ramo "redacao", a partir do "gerador"; só commit loca
 - Antes da rotina diária, um ensaio de execução única, para conferir três coisas que só a nuvem responde: se a rede do ambiente lê as fontes (na sessão de 22/10 ela bloqueava a leitura de páginas), se a sessão consegue abrir o pull request, e se os commits saem com a linha "Co-Authored-By: Claude" (a trilha e a aprovação dependem dela).
 - Rede do ambiente (configuração de segurança, passo dele): se o ensaio mostrar bloqueio, liberar só estes domínios na rede do ambiente "Default" em claude.ai/code: openai.com, deepmind.google, blog.google, huggingface.co, blogs.nvidia.com, mistral.ai, www.anthropic.com, ai.meta.com, dadosabertos.camara.leg.br, www.camara.leg.br, www.gov.br.
 
-PENDÊNCIA DA VEZ: ele fazer o merge do pull request #1 (falta o "Confirm merge"). Depois: ok dele para enviar o ramo "redacao" e abrir o pull request #2, e ok para o ensaio único da tarefa — Sonnet · baixo.
+ENVIO E ENSAIO (23/10, com o ok dele)
+- Ramo "redacao" enviado e pull request #2 aberto (https://github.com/vinigarbot/today-ia-br/pull/2), com base na main; depende do #1.
+- Merge do #1 conferido de novo às 02:48 UTC: continuava aberto, sem nenhum evento de merge ou aprovação na linha do tempo do GitHub, e sem merge recente em outro repositório dele.
+- Ensaio único na nuvem (rotina trig_01Sh4kXtgceWPY2xGmMqKV8A, Opus 5.5, execução única às 02:54 UTC, já desligada): a partir do ramo "redacao", abriu o pull request #3 (base "redacao", "Ensaio: Anthropic doa o Agent Skills a uma fundação neutra..."), em 3 minutos. Verificação "travas" verde. Commit com autor e committer "Claude <noreply@anthropic.com>" e a linha "Co-Authored-By: Claude": a trilha vai funcionar.
+- Conferência da matéria contra a fonte (anthropic.com, 23/10): todas as afirmações e números batem (mais de 70 plataformas, padrão aberto em dezembro de 2025, lançamento em outubro de 2025, 1 milhão de habilidades, quase 280 milhões de instalações, AAIF sob a Linux Foundation com Block e OpenAI, discussão no Discord e no GitHub); 22/10/2026 foi quinta-feira. Defeito: o quadro de dados mistura grandezas diferentes (70 plataformas, 1 e 280 milhões) em barras proporcionais. Regra nova no PROMPT: quadro só com grandezas da mesma unidade.
+- O que o ensaio mostrou sobre o ambiente:
+  1. Rede: o proxy da nuvem bloqueou (erro 403 do túnel) blog.google, huggingface.co, blogs.nvidia.com e mistral.ai. Leu openai.com (feed), deepmind.google, www.anthropic.com e ai.meta.com.
+  2. OpenAI: as páginas de notícia dão 403 de qualquer lugar, inclusive daqui (proteção do próprio site), e o feed só traz uma linha de resumo. A documentação oficial abre (platform.openai.com/docs, developers.openai.com, help.openai.com): regra nova no PROMPT para buscar o mesmo anúncio lá.
+  3. GitHub: na nuvem, gh pr list e gh pr create não funcionam (API GraphQL bloqueada); gh api com a API REST funciona. O PROMPT agora indica o caminho direto.
+  4. A sessão do ensaio se inscreveu nos eventos do pull request #3 e mandou um aviso ao celular dele com o resumo.
+
+PENDÊNCIA DA VEZ: ele fazer o merge do pull request #1 (falta o "Confirm merge") — Sonnet · baixo. Na sequência, passos dele: liberar na rede do ambiente "Default" (claude.ai/code, configurações do ambiente) os domínios blog.google, huggingface.co, blogs.nvidia.com e mistral.ai; ler o pull request #3 (ensaio) e decidir o que fazer com ele; depois o merge do #2 e o ok para criar a rotina diária.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
