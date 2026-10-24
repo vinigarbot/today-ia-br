@@ -104,7 +104,9 @@ MERGE DO #1 (23/10, 09:49 UTC): feito pelo Claude com gh, em nome dele, com auto
 REDE DA NUVEM (24/10): ele salvou o ambiente "Default" com acesso "Custom", a lista padrão mantida e os domínios das fontes (openai.com, *.openai.com, deepmind.google, blog.google, huggingface.co, blogs.nvidia.com, mistral.ai, www.anthropic.com, ai.meta.com, dadosabertos.camara.leg.br, www.camara.leg.br, *.senado.leg.br, www.gov.br). Checagem única na nuvem (rotina trig_01SHBcDx1g3yusbBZBcHvw3j, Sonnet 5.5, 14:41 UTC, já desligada): 16 endereços testados, nenhum bloqueio de rede. Os dois 403 vieram dos próprios sites: openai.com/index/... (já sabido) e help.openai.com (abre daqui, recusa a nuvem; saiu do PROMPT). platform.openai.com/docs e developers.openai.com abrem na nuvem.
 - Achado da checagem: o feed do Google DeepMind respondeu 200 na nuvem, mas o coletor não conseguiu ler ("not well-formed, line 1, column 0"). Daqui, o DeepMind manda o feed em gzip quando o pedido aceita compressão. Hipótese, não conferida na nuvem: a rede de lá acrescenta esse pedido. Correção no coletor: pede o conteúdo sem compressão e descompacta se chegar compactado; quando um feed não puder ser lido, a falha passa a mostrar os primeiros bytes recebidos. Teste novo (76 no total), com contraprova por mutação.
 
-PENDÊNCIA DA VEZ: ele ler o pull request #3 (matéria do ensaio) e decidir o que fazer com ele. Na sequência: o merge do #2 e o ok para criar a rotina diária das 06:00 (Opus 5.5) — Sonnet · baixo.
+PULL REQUEST #3 (24/10): ele leu a matéria do ensaio e decidiu fechar sem merge; fechado pelo Claude às 16:51 UTC. O ramo claude/materia-2026-10-23-agent-skills-fundacao continua no GitHub (apagar é dele); não atrapalha a redação, que só olha as últimas 48 horas.
+
+PENDÊNCIA DA VEZ: ele fazer o merge do pull request #2 (coletor, instruções e testes vão para a main). Na sequência: o ok dele para criar a rotina diária das 06:00 (Opus 5.5) — Sonnet · baixo.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
