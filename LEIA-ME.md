@@ -108,17 +108,21 @@ PULL REQUEST #3 (24/10): ele leu a matéria do ensaio e decidiu fechar sem merge
 
 MERGE DO #2 (24/10, 16:52 UTC): feito pelo Claude com gh, em nome dele, com autorização explícita dele no chat; travado no commit enviado faf55c1; merge cd06dda. A main ficou idêntica ao ramo "redacao", os testes passam a partir dela, e a publicação rodou e foi pulada (variável PUBLICAR_ATIVO inexistente).
 
-ROTINA DIÁRIA PROPOSTA (aguardando o ok dele; nada criado):
+ROTINA DIÁRIA CRIADA (24/10, 16:56 UTC, com o ok dele): trig_01BAQbKyGz5zQxRc7fNSEz1L (https://claude.ai/code/routines/trig_01BAQbKyGz5zQxRc7fNSEz1L), ativa. Primeira execução: 25/10 às 09:03 UTC (06:03 de Brasília; o atraso de minutos é o espaçamento automático da nuvem). A configuração é a da proposta abaixo. Para pausar ou apagar, é na página da rotina (apagar é dele). Os conectores Claude Docs e Claude Code Remote vieram anexados por padrão; a redação não depende deles.
+
+Como era a proposta:
 - Nome: "today.ia.br — redação diária". Horário: todo dia às 06:00 de Brasília (cron 0 9 * * * em UTC). Modelo: Opus 5.5. Ambiente: "Default" (rede Custom com as fontes). Repositório: vinigarbot/today-ia-br. Ferramentas: Bash, Read, Write, Edit, Glob, Grep e WebFetch (sem busca na web, para busca nunca virar fonte).
 - Mensagem: seguir redacao/PROMPT.md a partir da main atualizada; nunca commit ou envio na main, nunca merge, nada além do arquivo da matéria.
 - Trade-off: começando antes da hospedagem, as matérias aprovadas se acumulam na main e formam o acervo do lançamento (o AdSense pede conteúdo antes de aprovar), mas aparecem no site com a data de publicação marcada, anterior à estreia. Alternativa: esperar a hospedagem.
 
-PENDÊNCIA DA VEZ: o ok dele para criar a rotina diária das 06:00 (Opus 5.5) — Sonnet · baixo. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
+ROTINA DELE A PARTIR DE 25/10: por volta das 06:05 chega o aviso no celular e o pull request da matéria (ou "Sem pauta hoje"); ele lê e faz o merge até as 08:00, ou comenta pedindo ajuste, ou fecha sem merge. Enquanto a publicação estiver desligada, o merge só guarda a matéria na main, como acervo do lançamento.
+
+PENDÊNCIA DA VEZ: política de privacidade, aviso de que não há recomendação de investimento e página "Como usamos IA" (paginas/privacidade.md e paginas/como-usamos-ia.md, que o gerador já lê; itens que bloqueiam o lançamento) — Opus · alto. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
 2. ~~Gerador: site a partir da maquete v3, travas e fila de aprovação por pull request~~ (feito em 22/10; na main desde 23/10, merge do pull request #1)
-3. Tarefa agendada das 06:00 (redação: coleta, escreve, abre o pull request); roda sozinha, só com o ok dele — Opus · alto. Preparada em 23/10 no ramo "redacao" (coletor, instruções e testes); falta o envio, o ensaio único e a criação da rotina
+3. Tarefa agendada das 06:00 (redação: coleta, escreve, abre o pull request); roda sozinha, só com o ok dele — Opus · alto. Feita: ensaio em 23/10, merge do #2 e rotina criada em 24/10 (primeira execução em 25/10, 06:03 de Brasília)
 4. Hospedagem na Cloudflare Pages e apontamento do today.ia.br (conta, segredos e DNS são dele; o Claude deixa o passo a passo) — Sonnet · médio
 5. Política de privacidade, aviso de não recomendação de investimento e página "Como usamos IA" (o gerador já lê paginas/privacidade.md e paginas/como-usamos-ia.md) — Opus · alto
 6. Lista completa de fontes oficiais (gerador/fontes_oficiais.json; Microsoft, Nvidia, Hugging Face, Mistral, AWS, MCTI e ANPD ainda não testadas) — Opus · alto
