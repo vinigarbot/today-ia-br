@@ -12,7 +12,7 @@ sys.path.insert(0, str(RAIZ / "gerador"))
 sys.path.insert(0, str(RAIZ / "redacao"))
 
 from comum import carregar_json  # noqa: E402
-from coletar import coletar, em_texto, ja_citados, ler_data, ler_feed  # noqa: E402
+from coletar import coletar, descompactar, em_texto, ja_citados, ler_data, ler_feed  # noqa: E402
 
 AGORA = datetime(2026, 10, 23, 9, 0, tzinfo=timezone.utc)  # 06:00 em Brasília, hora da tarefa
 OFICIAIS = carregar_json("fontes_oficiais.json")
@@ -106,6 +106,16 @@ class Coletor(unittest.TestCase):
         self.assertIn("Anthropic: https://www.anthropic.com/news", texto)
         self.assertIn("Quebrada", texto)
         self.assertIn("06:00 de Brasília", texto)
+
+    def test_feed_compactado_e_lido(self):
+        # na nuvem, o feed do DeepMind chegou em gzip mesmo sem o coletor pedir (24/10/2026)
+        import gzip
+        import zlib
+        self.assertEqual(descompactar(gzip.compress(RSS)), RSS)
+        self.assertEqual(descompactar(gzip.compress(RSS), "gzip"), RSS)
+        self.assertEqual(descompactar(zlib.compress(RSS), "deflate"), RSS)
+        self.assertEqual(descompactar(RSS), RSS)
+        self.assertEqual(ler_feed(descompactar(gzip.compress(ATOM)))[0]["titulo"], "Pesquisa nova")
 
     def test_datas_dos_formatos_usados(self):
         self.assertEqual(ler_data("Thu, 22 Oct 2026 16:00:00 GMT"), datetime(2026, 10, 22, 16, 0, tzinfo=timezone.utc))

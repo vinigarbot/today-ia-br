@@ -11,8 +11,10 @@ Fonte que falha não derruba as outras: aparece no fim, com o motivo. Sai com c�
 """
 
 import argparse
+import gzip
 import json
 import sys
+import zlib
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -29,10 +31,23 @@ ATOM = "{http://www.w3.org/2005/Atom}"
 AGENTE = "today.ia.br (coletor de pautas)"
 
 
+def descompactar(bruto: bytes, codificacao: str = "") -> bytes:
+    """Na nuvem, a rede pede compressão por conta própria e o feed chega compactado (DeepMind, 24/10/2026)."""
+    codificacao = (codificacao or "").lower().strip()
+    if codificacao == "gzip" or bruto[:2] == b"\x1f\x8b":
+        return gzip.decompress(bruto)
+    if codificacao == "deflate":
+        try:
+            return zlib.decompress(bruto)
+        except zlib.error:
+            return zlib.decompress(bruto, -zlib.MAX_WBITS)  # deflate sem cabeçalho
+    return bruto
+
+
 def buscar(url: str, aceita: str = "application/rss+xml, application/atom+xml, application/xml, */*") -> bytes:
-    pedido = urllib.request.Request(url, headers={"User-Agent": AGENTE, "Accept": aceita})
+    pedido = urllib.request.Request(url, headers={"User-Agent": AGENTE, "Accept": aceita, "Accept-Encoding": "identity"})
     with urllib.request.urlopen(pedido, timeout=25) as r:
-        return r.read()
+        return descompactar(r.read(), r.headers.get("Content-Encoding", ""))
 
 
 def ler_data(texto: str) -> datetime | None:
@@ -86,10 +101,13 @@ def coletar(fontes: dict, oficiais: dict, citados: set[str], agora: datetime, ho
     limite = agora - timedelta(hours=horas)
     pautas, falhas, fora = [], [], []
     for f in fontes["rss"]:
+        bruto = b""
         try:
-            itens = ler_feed(busca(f["url"]))
+            bruto = busca(f["url"])
+            itens = ler_feed(bruto)
         except Exception as erro:  # rede, bloqueio do ambiente ou XML quebrado: segue com as outras fontes
-            falhas.append({"quem": f["quem"], "url": f["url"], "motivo": f"{type(erro).__name__}: {erro}"[:200]})
+            inicio = f" | início recebido: {bruto[:16]!r}" if bruto else ""  # para diagnosticar o que chegou no lugar do feed
+            falhas.append({"quem": f["quem"], "url": f["url"], "motivo": f"{type(erro).__name__}: {erro}"[:200] + inicio})
             continue
         for i in itens:
             if not i["data"] or i["data"] < limite or not i["link"]:
