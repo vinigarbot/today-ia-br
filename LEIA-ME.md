@@ -106,7 +106,14 @@ REDE DA NUVEM (24/10): ele salvou o ambiente "Default" com acesso "Custom", a li
 
 PULL REQUEST #3 (24/10): ele leu a matéria do ensaio e decidiu fechar sem merge; fechado pelo Claude às 16:51 UTC. O ramo claude/materia-2026-10-23-agent-skills-fundacao continua no GitHub (apagar é dele); não atrapalha a redação, que só olha as últimas 48 horas.
 
-PENDÊNCIA DA VEZ: ele fazer o merge do pull request #2 (coletor, instruções e testes vão para a main). Na sequência: o ok dele para criar a rotina diária das 06:00 (Opus 5.5) — Sonnet · baixo.
+MERGE DO #2 (24/10, 16:52 UTC): feito pelo Claude com gh, em nome dele, com autorização explícita dele no chat; travado no commit enviado faf55c1; merge cd06dda. A main ficou idêntica ao ramo "redacao", os testes passam a partir dela, e a publicação rodou e foi pulada (variável PUBLICAR_ATIVO inexistente).
+
+ROTINA DIÁRIA PROPOSTA (aguardando o ok dele; nada criado):
+- Nome: "today.ia.br — redação diária". Horário: todo dia às 06:00 de Brasília (cron 0 9 * * * em UTC). Modelo: Opus 5.5. Ambiente: "Default" (rede Custom com as fontes). Repositório: vinigarbot/today-ia-br. Ferramentas: Bash, Read, Write, Edit, Glob, Grep e WebFetch (sem busca na web, para busca nunca virar fonte).
+- Mensagem: seguir redacao/PROMPT.md a partir da main atualizada; nunca commit ou envio na main, nunca merge, nada além do arquivo da matéria.
+- Trade-off: começando antes da hospedagem, as matérias aprovadas se acumulam na main e formam o acervo do lançamento (o AdSense pede conteúdo antes de aprovar), mas aparecem no site com a data de publicação marcada, anterior à estreia. Alternativa: esperar a hospedagem.
+
+PENDÊNCIA DA VEZ: o ok dele para criar a rotina diária das 06:00 (Opus 5.5) — Sonnet · baixo. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
