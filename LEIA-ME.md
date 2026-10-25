@@ -117,7 +117,12 @@ Como era a proposta:
 
 ROTINA DELE A PARTIR DE 25/10: por volta das 06:05 chega o aviso no celular e o pull request da matéria (ou "Sem pauta hoje"); ele lê e faz o merge até as 08:00, ou comenta pedindo ajuste, ou fecha sem merge. Enquanto a publicação estiver desligada, o merge só guarda a matéria na main, como acervo do lançamento.
 
-PENDÊNCIA DA VEZ: política de privacidade, aviso de que não há recomendação de investimento e página "Como usamos IA" (paginas/privacidade.md e paginas/como-usamos-ia.md, que o gerador já lê; itens que bloqueiam o lançamento) — Opus · alto. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
+HOSPEDAGEM E PÁGINAS (25/10)
+- Hospedagem no Cloudflare Workers (recomendação do Claude, ele pode vetar; mesmo motivo do Mall Journal em 16/10: a Cloudflare recomenda o Workers para sites novos e deixou o Pages em manutenção). wrangler.jsonc sem endereço público até a estreia (workers_dev e preview_urls desligados, sem rota); validado com wrangler deploy --dry-run. .ia.br está na lista pública de sufixos: a Cloudflare aceita today.ia.br no plano gratuito. Recomendação: conta Cloudflare separada da do Mall Journal (a chave do GitHub de uma conta mexe em todos os Workers dela). Passos dele enviados no chat: conta, site, DNS no Registro.br, token "Edit Cloudflare Workers" e os segredos CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID no GitHub.
+- Páginas rascunhadas (paginas/privacidade.md, como-usamos-ia.md, aviso-investimentos.md) e revisadas pelo Claude; o gerador monta as três, o rodapé leva ao aviso sobre investimentos, e a produção não publica página com "[a preencher" (77 testes).
+- Decisões dele que faltam nas páginas: e-mail da redação e serviço de e-mail; nome do controlador (dado pessoal real: recomendação de guardar fora do repositório, numa variável do GitHub lida na hora de gerar); encarregado (recomendação: dispensa de agente de pequeno porte, Resolução CD/ANPD nº 2/2022, com o e-mail da redação como canal); prazo de guarda dos pedidos de correção e de direito de resposta (sugestão: 2 anos); data de vigência (a da estreia). Aviso de cookies: decisão para quando o AdSense for aprovado (a política já prevê consentimento para anúncios personalizados).
+
+PENDÊNCIA DA VEZ: os passos dele na Cloudflare e no Registro.br (partes 1 e 2) — Sonnet · médio. Em seguida, as decisões das páginas. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
