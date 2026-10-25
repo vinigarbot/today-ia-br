@@ -124,7 +124,11 @@ HOSPEDAGEM E PÁGINAS (25/10)
 
 DECISÕES DAS PÁGINAS (25/10, dele, por recomendação do Claude): e-mail redacao@today.ia.br pelo Email Routing da Cloudflare, repassando ao Gmail dele (já em gerador/config.json e nas páginas); nome dele como controlador numa variável do GitHub (TODAY_CONTROLADOR, lida pelo publicar.yml; nunca no repositório); dispensa do encarregado (agente de pequeno porte, art. 11 da Resolução CD/ANPD nº 2/2022), com o e-mail da redação como canal; guarda de 2 anos dos pedidos de correção e de direito de resposta; vigência na data da estreia (data_estreia em gerador/config.json, preenchida no dia). 78 testes.
 
-PENDÊNCIA DA VEZ: os passos dele na Cloudflare e no Registro.br (partes 1 e 2), mais a variável TODAY_CONTROLADOR no GitHub — Sonnet · médio. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
+CONTA DA CLOUDFLARE (25/10, decisão dele): usar a conta que já existe, a do Mall Journal, no lugar de uma conta separada. Trade-off aceito: a chave da Cloudflare guardada no GitHub do today.ia.br também alcança os Workers do Mall Journal; a chave fica restrita ao mínimo (Workers e a zona today.ia.br). Ele pediu que o Claude fizesse os passos no Chrome; login e chave são dele.
+
+CLOUDFLARE E DNS (25/10, feito pelo Claude no Chrome, com login dele): today.ia.br adicionado à conta do Mall Journal no plano Free (robôs de busca e de IA liberados, como a Cloudflare recomenda; mantidos os 3 registros anti-falsificação de e-mail que o Registro.br já tinha: MX nulo, SPF -all e DMARC reject). Servidores DNS da Cloudflare: armfazh.ns.cloudflare.com e suzanne.ns.cloudflare.com, gravados no Registro.br às 11:08 UTC (delegação em cerca de 2 horas). Segredo CLOUDFLARE_ACCOUNT_ID salvo no GitHub pelo Claude (identificador da conta, não é chave).
+
+PENDÊNCIA DA VEZ: ele criar a chave da Cloudflare (modelo "Edit Cloudflare Workers", zona today.ia.br) e colar no segredo CLOUDFLARE_API_TOKEN do GitHub; definir a variável TODAY_CONTROLADOR — Sonnet · médio. Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
