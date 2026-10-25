@@ -203,6 +203,24 @@ class Bloqueios(unittest.TestCase):
         self.assertNotIn("Página 'Como usamos IA'", texto)
         self.assertIn('href="/aviso-investimentos/"', ler(self.base / "site", "index.html"))
 
+    def test_nome_do_controlador_vem_de_fora_do_repositorio(self):
+        import os
+        repo = montar_repo(self.base / "repo", so=["2026-10-21-clubes-ia-lesoes.md"])
+        shutil.copytree(RAIZ / "paginas", repo / "paginas")
+        self.assertNotIn("Fulana", (repo / "paginas" / "privacidade.md").read_text(encoding="utf-8"))
+        antes = os.environ.pop("TODAY_CONTROLADOR", None)
+        try:
+            codigo, texto = gerar(repo, self.base / "sem", "--rascunhos")
+            self.assertIn("variável TODAY_CONTROLADOR", texto)
+            os.environ["TODAY_CONTROLADOR"] = "Fulana <de> Exemplo"  # pessoa inventada; o < confere o escape
+            codigo, texto = gerar(repo, self.base / "com", "--rascunhos")
+            self.assertNotIn("variável TODAY_CONTROLADOR", texto)
+            self.assertIn("é Fulana &lt;de&gt; Exemplo, pessoa física", ler(self.base / "com", "privacidade/index.html"))
+        finally:
+            os.environ.pop("TODAY_CONTROLADOR", None)
+            if antes is not None:
+                os.environ["TODAY_CONTROLADOR"] = antes
+
     def test_producao_para_com_arvore_suja(self):
         repo = montar_repo(self.base / "repo", so=["2026-10-21-clubes-ia-lesoes.md"])
         (repo / "materias" / "rascunho.txt").write_text("solto", encoding="utf-8")

@@ -31,6 +31,7 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TODAY_CONTROLADOR: ${{ vars.TODAY_CONTROLADOR }}  # nome do controlador na política de privacidade, fora do repositório
     steps:
       - uses: actions/checkout@v4
         with:

@@ -3,13 +3,13 @@ titulo: Política de privacidade
 descricao: Que dados pessoais o today.ia.br trata, para quê, com quem compartilha, por quanto tempo e como você exerce os seus direitos, nos termos da Lei Geral de Proteção de Dados Pessoais.
 ---
 
-Esta política explica como o today.ia.br trata dados pessoais de quem visita o site ou escreve para a redação, nos termos da Lei Geral de Proteção de Dados Pessoais (LGPD, Lei nº 13.709/2018). Versão 1.0, em vigor desde [a preencher: data de vigência].
+Esta política explica como o today.ia.br trata dados pessoais de quem visita o site ou escreve para a redação, nos termos da Lei Geral de Proteção de Dados Pessoais (LGPD, Lei nº 13.709/2018). Versão 1.0, em vigor desde {{data_vigencia}}.
 
 ## Quem é o responsável pelos dados
 
-O responsável pelo tratamento dos dados pessoais descritos aqui, chamado de controlador na LGPD, é [a preencher: nome do controlador], pessoa física que mantém o today.ia.br.
+O responsável pelo tratamento dos dados pessoais descritos aqui, chamado de controlador na LGPD, é {{controlador}}, pessoa física que mantém o today.ia.br.
 
-Para qualquer assunto relacionado aos seus dados pessoais, inclusive o exercício dos direitos descritos mais abaixo, escreva para [a preencher: e-mail da redação]. Encarregado pelo tratamento de dados pessoais: [a preencher: nome do encarregado ou registro da dispensa prevista para agente de tratamento de pequeno porte na Resolução CD/ANPD nº 2/2022].
+Para qualquer assunto relacionado aos seus dados pessoais, inclusive o exercício dos direitos descritos mais abaixo, escreva para redacao@today.ia.br. O today.ia.br é agente de tratamento de pequeno porte e, como permite o art. 11 da Resolução CD/ANPD nº 2/2022, não indica encarregado pelo tratamento de dados pessoais. O canal de comunicação com os titulares e com a ANPD é o e-mail redacao@today.ia.br.
 
 ## O que o site não coleta
 
@@ -48,20 +48,20 @@ O today.ia.br não vende dados pessoais e não toma, por conta própria, decisõ
 
 - **Cloudflare:** hospeda o site, entrega as páginas, protege o site contra ataques e, se for ligada, faz a medição de audiência sem cookies. A Cloudflare trata os dados técnicos de acesso em nome do today.ia.br, conforme as instruções do controlador e o contrato de tratamento de dados que mantém com os seus clientes.
 - **Google e parceiros de publicidade, quando os anúncios forem ligados:** o Google e as empresas de publicidade autorizadas por ele recebem os dados de navegação ligados aos cookies e identificadores de publicidade. Nessa atividade, o Google atua também como controlador, segundo as políticas próprias, e explica o uso desses dados no endereço policies.google.com/technologies/partner-sites.
-- **Serviço de e-mail da redação:** as mensagens enviadas à redação ficam guardadas no serviço de e-mail usado pelo controlador, [a preencher: serviço de e-mail da redação].
+- **Serviço de e-mail da redação:** as mensagens enviadas à redação ficam guardadas no serviço de e-mail usado pelo controlador, o Email Routing da Cloudflare, que recebe as mensagens enviadas a redacao@today.ia.br e as repassa para a caixa de e-mail do controlador, mantida no Gmail, do Google.
 - **Autoridades públicas:** os dados podem ser fornecidos a autoridades quando houver obrigação legal ou ordem judicial.
 
 ## Transferência internacional de dados
 
 A Cloudflare e o Google são empresas com sede nos Estados Unidos e operam servidores em vários países. Por isso, os dados técnicos de acesso e, quando os anúncios forem ligados, os dados de publicidade podem ser tratados fora do Brasil.
 
-Essa transferência é feita nas hipóteses do art. 33 da LGPD, com base nas cláusulas de proteção de dados previstas nos contratos desses fornecedores, observado o regulamento de transferência internacional da Autoridade Nacional de Proteção de Dados (ANPD). Fora do Brasil, continuam valendo as finalidades, os prazos e os direitos descritos nesta política. Pedidos sobre a transferência podem ser enviados para [a preencher: e-mail da redação].
+Essa transferência é feita nas hipóteses do art. 33 da LGPD, com base nas cláusulas de proteção de dados previstas nos contratos desses fornecedores, observado o regulamento de transferência internacional da Autoridade Nacional de Proteção de Dados (ANPD). Fora do Brasil, continuam valendo as finalidades, os prazos e os direitos descritos nesta política. Pedidos sobre a transferência podem ser enviados para redacao@today.ia.br.
 
 ## Por quanto tempo guardamos os dados
 
 - **Dados técnicos de acesso:** o today.ia.br não mantém registro próprio de acessos. Esses dados ficam com a Cloudflare pelo tempo necessário à entrega e à segurança do site, conforme as regras dela. A audiência, se a medição for ligada, é guardada apenas em números agregados.
 - **Cookies de publicidade, quando os anúncios forem ligados:** ficam no seu navegador pelo prazo definido pelo Google e pelos parceiros dele, informado nas respectivas políticas. Você pode apagá-los a qualquer momento nas configurações do navegador.
-- **Mensagens à redação:** pelo tempo necessário para responder. Mensagens com pedido de correção ou de direito de resposta são guardadas por [a preencher: prazo de guarda das mensagens de correção e de direito de resposta], para registro do que foi pedido e do que foi feito.
+- **Mensagens à redação:** pelo tempo necessário para responder. Mensagens com pedido de correção ou de direito de resposta são guardadas por dois anos, para registro do que foi pedido e do que foi feito.
 
 Ao fim desses prazos, os dados são eliminados, salvo quando a lei exigir ou permitir a guarda por mais tempo.
 
@@ -92,13 +92,13 @@ O art. 18 da LGPD garante a você, a qualquer momento e sem custo, os seguintes 
 - opor-se a tratamento feito sem consentimento, caso ele descumpra a lei;
 - apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD), pelo endereço gov.br/anpd.
 
-Para exercer qualquer desses direitos, escreva para [a preencher: e-mail da redação], informando o pedido. Podemos pedir informações adicionais apenas para confirmar que o pedido parte do próprio titular. A confirmação de existência de tratamento e o acesso aos dados são atendidos de imediato, em formato simplificado, ou por declaração completa em até 15 dias do pedido, como prevê o art. 19 da LGPD.
+Para exercer qualquer desses direitos, escreva para redacao@today.ia.br, informando o pedido. Podemos pedir informações adicionais apenas para confirmar que o pedido parte do próprio titular. A confirmação de existência de tratamento e o acesso aos dados são atendidos de imediato, em formato simplificado, ou por declaração completa em até 15 dias do pedido, como prevê o art. 19 da LGPD.
 
 Como o today.ia.br não mantém registro próprio de acessos, em geral não é possível relacionar um endereço IP ou um cookie a uma pessoa. Pedidos sobre dados de publicidade são atendidos com mais rapidez diretamente nas ferramentas do Google descritas acima.
 
 ## Crianças e adolescentes
 
-O today.ia.br é um site de notícias de acesso livre, não é dirigido a crianças e adolescentes e não coleta de propósito dados de menores de 18 anos. Se você é pai, mãe ou responsável e acredita que uma criança ou um adolescente enviou dados pessoais à redação, escreva para [a preencher: e-mail da redação] para que eles sejam eliminados.
+O today.ia.br é um site de notícias de acesso livre, não é dirigido a crianças e adolescentes e não coleta de propósito dados de menores de 18 anos. Se você é pai, mãe ou responsável e acredita que uma criança ou um adolescente enviou dados pessoais à redação, escreva para redacao@today.ia.br para que eles sejam eliminados.
 
 ## Segurança
 

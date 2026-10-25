@@ -76,6 +76,6 @@ As fontes oficiais apresentam a versão da própria empresa ou do próprio órg�
 
 ## Como relatar um erro
 
-Se você encontrar um erro em qualquer matéria, escreva para [a preencher: e-mail da redação], informando o endereço da matéria, o trecho em questão e, se possível, a fonte que mostra a informação correta.
+Se você encontrar um erro em qualquer matéria, escreva para redacao@today.ia.br, informando o endereço da matéria, o trecho em questão e, se possível, a fonte que mostra a informação correta.
 
 Cada relato é lido por uma pessoa. Quando o erro é confirmado, a matéria é corrigida, e a correção fica registrada na trilha da própria matéria.

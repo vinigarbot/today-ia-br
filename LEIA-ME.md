@@ -122,7 +122,9 @@ HOSPEDAGEM E PÁGINAS (25/10)
 - Páginas rascunhadas (paginas/privacidade.md, como-usamos-ia.md, aviso-investimentos.md) e revisadas pelo Claude; o gerador monta as três, o rodapé leva ao aviso sobre investimentos, e a produção não publica página com "[a preencher" (77 testes).
 - Decisões dele que faltam nas páginas: e-mail da redação e serviço de e-mail; nome do controlador (dado pessoal real: recomendação de guardar fora do repositório, numa variável do GitHub lida na hora de gerar); encarregado (recomendação: dispensa de agente de pequeno porte, Resolução CD/ANPD nº 2/2022, com o e-mail da redação como canal); prazo de guarda dos pedidos de correção e de direito de resposta (sugestão: 2 anos); data de vigência (a da estreia). Aviso de cookies: decisão para quando o AdSense for aprovado (a política já prevê consentimento para anúncios personalizados).
 
-PENDÊNCIA DA VEZ: os passos dele na Cloudflare e no Registro.br (partes 1 e 2) — Sonnet · médio. Em seguida, as decisões das páginas. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
+DECISÕES DAS PÁGINAS (25/10, dele, por recomendação do Claude): e-mail redacao@today.ia.br pelo Email Routing da Cloudflare, repassando ao Gmail dele (já em gerador/config.json e nas páginas); nome dele como controlador numa variável do GitHub (TODAY_CONTROLADOR, lida pelo publicar.yml; nunca no repositório); dispensa do encarregado (agente de pequeno porte, art. 11 da Resolução CD/ANPD nº 2/2022), com o e-mail da redação como canal; guarda de 2 anos dos pedidos de correção e de direito de resposta; vigência na data da estreia (data_estreia em gerador/config.json, preenchida no dia). 78 testes.
+
+PENDÊNCIA DA VEZ: os passos dele na Cloudflare e no Registro.br (partes 1 e 2), mais a variável TODAY_CONTROLADOR no GitHub — Sonnet · médio. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)

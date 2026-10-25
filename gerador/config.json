@@ -2,7 +2,8 @@
   "url": "https://today.ia.br",
   "nome": "today.ia.br",
   "descricao": "Notícias de inteligência artificial em português, escritas a partir de fontes oficiais e revisadas antes da publicação.",
-  "email_redacao": "",
+  "email_redacao": "redacao@today.ia.br",
+  "data_estreia": "",
   "cloudflare_analytics_token": "",
   "adsense": {
     "cliente": "",

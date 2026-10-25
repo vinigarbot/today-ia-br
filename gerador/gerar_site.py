@@ -16,6 +16,7 @@ import argparse
 import hashlib
 import html
 import json
+import os
 import re
 import shutil
 import sys
@@ -458,9 +459,22 @@ def pagina_editoria(chave: str, lista: list[dict], ctx: dict) -> str:
     return pagina(ctx, caminho=f"/{chave}/", titulo=ed["nome"], descricao=DESCRICAO_EDITORIA[chave], corpo=corpo, ativa=chave)
 
 
+def texto_da_pagina(arq: Path, cfg: dict) -> str:
+    """Texto da página com os dados que não ficam no repositório (decisão dele de 25/10/2026): o nome do controlador
+    vem da variável TODAY_CONTROLADOR (variável do GitHub, passada pelo publicar.yml) e a vigência, de data_estreia
+    em config.json. Sem o valor, entra o marcador "[a preencher", e a produção não publica."""
+    texto = arq.read_text(encoding="utf-8").replace("\r\n", "\n")
+    valores = {"{{controlador}}": (os.environ.get("TODAY_CONTROLADOR", "").strip(), "nome do controlador (variável TODAY_CONTROLADOR do GitHub)"),
+               "{{data_vigencia}}": (cfg.get("data_estreia", "").strip(), "data de vigência (data_estreia em gerador/config.json)")}
+    for marca, (valor, falta) in valores.items():
+        texto = texto.replace(marca, valor or f"{MARCADOR_PENDENTE}: {falta}]")
+    return texto
+
+
 def pagina_texto(nome: str, arq: Path, ctx: dict) -> str:
-    lido = ler_cabecalho(arq.read_text(encoding="utf-8").replace("\r\n", "\n"))
-    meta, texto = lido if lido else ({}, arq.read_text(encoding="utf-8"))
+    bruto = texto_da_pagina(arq, ctx["cfg"])
+    lido = ler_cabecalho(bruto)
+    meta, texto = lido if lido else ({}, bruto)
     partes = []
     for b in ler_blocos(texto):
         if b["tipo"] == "h2":
@@ -555,7 +569,7 @@ def pendencias_lancamento(raiz: Path, cfg: dict, publicadas: list[dict], paginas
         if nome not in paginas:
             falta.append(f"Página '{titulo}' (paginas/{nome}.md)")
             continue
-        marcadores = re.findall(re.escape(MARCADOR_PENDENTE) + r"[^\]]*\]", paginas[nome].read_text(encoding="utf-8"))
+        marcadores = re.findall(re.escape(MARCADOR_PENDENTE) + r"[^\]]*\]", texto_da_pagina(paginas[nome], cfg))
         if marcadores:
             falta.append(f"Página '{titulo}' com {len(marcadores)} trecho(s) a preencher: " + "; ".join(sorted(set(marcadores))))
     if not cfg["email_redacao"]:
