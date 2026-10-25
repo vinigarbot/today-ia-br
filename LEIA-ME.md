@@ -128,7 +128,9 @@ CONTA DA CLOUDFLARE (25/10, decisão dele): usar a conta que já existe, a do Ma
 
 CLOUDFLARE E DNS (25/10, feito pelo Claude no Chrome, com login dele): today.ia.br adicionado à conta do Mall Journal no plano Free (robôs de busca e de IA liberados, como a Cloudflare recomenda; mantidos os 3 registros anti-falsificação de e-mail que o Registro.br já tinha: MX nulo, SPF -all e DMARC reject). Servidores DNS da Cloudflare: armfazh.ns.cloudflare.com e suzanne.ns.cloudflare.com, gravados no Registro.br às 11:08 UTC (delegação em cerca de 2 horas). Segredo CLOUDFLARE_ACCOUNT_ID salvo no GitHub pelo Claude (identificador da conta, não é chave).
 
-PENDÊNCIA DA VEZ: ele criar a chave da Cloudflare (modelo "Edit Cloudflare Workers", zona today.ia.br) e colar no segredo CLOUDFLARE_API_TOKEN do GitHub; definir a variável TODAY_CONTROLADOR — Sonnet · médio. Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
+VARIÁVEL TODAY_CONTROLADOR (25/10): criada pelo Claude com gh, com autorização dele, usando o nome do titular do domínio no Registro.br; o nome não está em nenhum arquivo do repositório. Com ela, a política de privacidade sai completa; para a produção faltam só a data da estreia e uma matéria aprovada.
+
+PENDÊNCIA DA VEZ: ele criar a chave da Cloudflare (modelo "Edit Cloudflare Workers", zona today.ia.br) e colar no segredo CLOUDFLARE_API_TOKEN do GitHub — Sonnet · médio. Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
