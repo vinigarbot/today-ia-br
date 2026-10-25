@@ -1,0 +1,15 @@
+// Hospedagem do today.ia.br no Cloudflare Workers, só com arquivos estáticos (recomendação de 25/10/2026, no lugar do
+// Pages: a Cloudflare recomenda o Workers para sites novos e deixou o Pages em manutenção; mesmo motivo do Mall Journal).
+// Sobe apenas a pasta gerada (_saida); o repositório nunca sobe. Quem envia é o GitHub Actions (.github/workflows/publicar.yml).
+{
+  "name": "today-ia-br",
+  "compatibility_date": "2026-10-25",
+  // até a estreia, nenhum endereço público: o provisório da Cloudflare (workers.dev) e as prévias por versão ficam
+  // desligados, e o domínio today.ia.br só entra em "routes" no dia do lançamento, com o ok dele
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./_saida",
+    "not_found_handling": "404-page"
+  }
+}

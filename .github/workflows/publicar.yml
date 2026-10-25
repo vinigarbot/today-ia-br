@@ -1,4 +1,4 @@
-# Publicação: gera o site a partir da main e envia à Cloudflare Pages.
+# Publicação: gera o site a partir da main e envia ao Cloudflare Workers (arquivos estáticos; configuração em wrangler.jsonc).
 # Roda às 08:00 e às 18:00 de Brasília (o GitHub pode atrasar o horário agendado em alguns minutos),
 # a cada merge na main (para correções entrarem logo) e pelo botão "Run workflow".
 # Só publica a matéria aprovada por merge humano cujo publicar_em já passou (gerador/gerar_site.py --producao).
@@ -42,6 +42,6 @@ jobs:
         run: python -I -m unittest discover -s testes
       - name: Gerar o site (produção)
         run: python -I gerador/gerar_site.py --producao
-      - name: Enviar à Cloudflare Pages
+      - name: Enviar ao Cloudflare Workers
         if: env.CLOUDFLARE_API_TOKEN != ''
-        run: npx --yes wrangler@4 pages deploy _saida --project-name=today-ia-br --branch=main --commit-hash="$GITHUB_SHA"
+        run: npx --yes wrangler@4 deploy --message "commit $GITHUB_SHA"
