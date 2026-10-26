@@ -135,7 +135,11 @@ E-MAIL DA REDAÇÃO (26/10, com o ok dele): apagados o MX nulo e o SPF "-all" do
 
 TESTE DO E-MAIL (26/10): mensagem enviada por ele de outra conta para redacao@today.ia.br chegou ao Gmail. O teste do próprio Gmail de destino não aparece (o Gmail esconde a cópia), e a Cloudflare manda um aviso explicando isso.
 
-PENDÊNCIA DA VEZ: ok dele para enviar o ramo "registro" (Workers, páginas, decisões e registros) e abrir o pull request — Sonnet · baixo. Depois: a revisão completa antes da estreia (Opus · extra). Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
+PULL REQUEST #5 (26/10, com o ok dele): ramo "registro" enviado e #5 aberto (https://github.com/vinigarbot/today-ia-br/pull/5); 78 testes passam localmente. A verificação "travas" não rodou: o GitHub recusou iniciar o trabalho ("spending limit"). Causa conferida na página de cobrança: a conta dele usou 3.000 de 3.000 minutos do GitHub Actions de outubro (cota única para todos os repositórios particulares; zera em 1º/11) e o limite de gasto está em zero. Consumo estimado em outubro: Casadir mais de 578 minutos em mais de 100 execuções (a listagem para em 100); today-ia-br cerca de 11 minutos. Há também "Downgrade pending" do GitHub Pro: a cota passa a 2.000 minutos.
+- Efeito: até 1º/11 não rodam as verificações dos pull requests nem a publicação pelo GitHub Actions. A redação diária continua (roda na nuvem da Anthropic e passa as travas dentro da própria sessão), e a produção confere as travas de novo antes de publicar.
+- Risco permanente: se o Casadir esgotar a cota de novo no fim de um mês, o today.ia.br para de publicar até o mês seguinte.
+
+PENDÊNCIA DA VEZ: decisão dele sobre os minutos do GitHub Actions (esperar 1º/11, tornar o repositório público, ou outra saída) — Sonnet · baixo. O merge do #5 pode ser feito antes (testes passam localmente). Depois: a revisão completa antes da estreia (Opus · extra). Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
