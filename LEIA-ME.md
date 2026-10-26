@@ -133,7 +133,9 @@ VARIÁVEL TODAY_CONTROLADOR (25/10): criada pelo Claude com gh, com autorizaçã
 HOSPEDAGEM PRONTA (26/10): DNS público do today.ia.br já na Cloudflare; zona ativa. Chave da Cloudflare criada por ele (modelo "Edit Cloudflare Workers"; Workers da conta inteira, rotas só da zona today.ia.br) e salva no segredo CLOUDFLARE_API_TOKEN; o Claude montou a tela até o resumo, sem tocar no código da chave.
 E-MAIL DA REDAÇÃO (26/10, com o ok dele): apagados o MX nulo e o SPF "-all" do Registro.br; mantido o DMARC p=reject. Email Routing criou 3 MX (route1/2/3.mx.cloudflare.net), DKIM e SPF "include:_spf.mx.cloudflare.net ~all", conferidos na rede pública. Regra ativa: redacao@today.ia.br → Gmail dele (destino já verificado pela configuração do Mall Journal). Catch-all continua desligado.
 
-PENDÊNCIA DA VEZ: ele mandar um e-mail de teste para redacao@today.ia.br, de outra conta, e confirmar que chegou — Sonnet · baixo. Depois: enviar o ramo "registro" (Workers, páginas, decisões) por pull request e a revisão completa antes da estreia (Opus · extra). Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
+TESTE DO E-MAIL (26/10): mensagem enviada por ele de outra conta para redacao@today.ia.br chegou ao Gmail. O teste do próprio Gmail de destino não aparece (o Gmail esconde a cópia), e a Cloudflare manda um aviso explicando isso.
+
+PENDÊNCIA DA VEZ: ok dele para enviar o ramo "registro" (Workers, páginas, decisões e registros) e abrir o pull request — Sonnet · baixo. Depois: a revisão completa antes da estreia (Opus · extra). Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
