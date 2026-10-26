@@ -139,7 +139,14 @@ PULL REQUEST #5 (26/10, com o ok dele): ramo "registro" enviado e #5 aberto (htt
 - Efeito: até 1º/11 não rodam as verificações dos pull requests nem a publicação pelo GitHub Actions. A redação diária continua (roda na nuvem da Anthropic e passa as travas dentro da própria sessão), e a produção confere as travas de novo antes de publicar.
 - Risco permanente: se o Casadir esgotar a cota de novo no fim de um mês, o today.ia.br para de publicar até o mês seguinte.
 
-PENDÊNCIA DA VEZ: decisão dele sobre os minutos do GitHub Actions (esperar 1º/11, tornar o repositório público, ou outra saída) — Sonnet · baixo. O merge do #5 pode ser feito antes (testes passam localmente). Depois: a revisão completa antes da estreia (Opus · extra). Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
+REPOSITÓRIO PÚBLICO NOVO (26/10, decisão dele): regra dele de que os projetos paralelos não podem consumir a cota de Actions do Casadir; só o today-ia-br usava Actions além do Casadir (cerca de 19 minutos em outubro). Repositório público não consome a cota da conta. A varredura do histórico inteiro não achou chave, CPF, telefone, endereço nem o nome completo dele, mas achou o Gmail dele como autor de 25 commits; como os pull requests guardam cópias dos commits antigos, reescrever no lugar não bastava. Feito pelo Claude, com o ok dele:
+- o repositório antigo virou vinigarbot/today-ia-br-arquivo, particular, com todos os pull requests (#1 a #5, inclusive a matéria de 25/10 do #4) e os ramos antigos;
+- vinigarbot/today-ia-br novo e público, só com a main e o ramo "registro", com os autores trocados para 257640436+vinigarbot@users.noreply.github.com (conteúdo idêntico, conferido; os merges continuam com committer noreply@github.com, que é o que a trilha usa); conferido pela API pública que nenhum commit traz o Gmail;
+- copiados: só merge commit, o segredo CLOUDFLARE_ACCOUNT_ID e a variável TODAY_CONTROLADOR;
+- o git deste computador passa a assinar com o endereço protegido neste repositório.
+- Faltam dois cliques dele: colar de novo a chave da Cloudflare no segredo CLOUDFLARE_API_TOKEN do repositório novo (o valor de um segredo não pode ser copiado) e liberar o app do Claude para o repositório novo (sem isso a redação diária das 06:00 não consegue abrir o repositório).
+
+PENDÊNCIA DA VEZ: os dois cliques dele no repositório novo (chave da Cloudflare e acesso do app do Claude) e o merge do pull request do ramo "registro" — Sonnet · baixo. Depois: a revisão completa antes da estreia (Opus · extra). Depois: conferir a ativação da zona e ligar o e-mail da redação. Este registro está no ramo local "registro" (a main só recebe mudança por merge) e vai junto com a próxima mudança.
 
 FILA
 1. ~~Criar o repositório privado no GitHub e liberar para o Claude~~ (feito em 22/10)
