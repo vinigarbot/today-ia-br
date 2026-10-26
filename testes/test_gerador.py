@@ -189,6 +189,38 @@ class Bloqueios(unittest.TestCase):
         self.assertEqual(codigo, 2)
         self.assertIn("Página 'Política de privacidade'", texto)
 
+    def test_producao_para_com_trecho_a_preencher(self):
+        repo = montar_repo(self.base / "repo", so=["2026-10-21-clubes-ia-lesoes.md"])
+        (repo / "paginas").mkdir()
+        for nome in gerar_site.PAGINAS:
+            (repo / "paginas" / f"{nome}.md").write_text(f"---\ntitulo: {nome}\n---\n\nTexto pronto.\n", encoding="utf-8")
+        (repo / "paginas" / "privacidade.md").write_text("---\ntitulo: Privacidade\n---\n\nControlador: [a preencher: nome do controlador].\n", encoding="utf-8")
+        git(repo, "add", "-A")
+        git(repo, "commit", "-q", "-m", "Páginas" + TRAILER, quando="2026-10-21T09:00:00-03:00")
+        codigo, texto = gerar(repo, self.base / "site", "--producao")
+        self.assertEqual(codigo, 2)
+        self.assertIn("[a preencher: nome do controlador]", texto)
+        self.assertNotIn("Página 'Como usamos IA'", texto)
+        self.assertIn('href="/aviso-investimentos/"', ler(self.base / "site", "index.html"))
+
+    def test_nome_do_controlador_vem_de_fora_do_repositorio(self):
+        import os
+        repo = montar_repo(self.base / "repo", so=["2026-10-21-clubes-ia-lesoes.md"])
+        shutil.copytree(RAIZ / "paginas", repo / "paginas")
+        self.assertNotIn("Fulana", (repo / "paginas" / "privacidade.md").read_text(encoding="utf-8"))
+        antes = os.environ.pop("TODAY_CONTROLADOR", None)
+        try:
+            codigo, texto = gerar(repo, self.base / "sem", "--rascunhos")
+            self.assertIn("variável TODAY_CONTROLADOR", texto)
+            os.environ["TODAY_CONTROLADOR"] = "Fulana <de> Exemplo"  # pessoa inventada; o < confere o escape
+            codigo, texto = gerar(repo, self.base / "com", "--rascunhos")
+            self.assertNotIn("variável TODAY_CONTROLADOR", texto)
+            self.assertIn("é Fulana &lt;de&gt; Exemplo, pessoa física", ler(self.base / "com", "privacidade/index.html"))
+        finally:
+            os.environ.pop("TODAY_CONTROLADOR", None)
+            if antes is not None:
+                os.environ["TODAY_CONTROLADOR"] = antes
+
     def test_producao_para_com_arvore_suja(self):
         repo = montar_repo(self.base / "repo", so=["2026-10-21-clubes-ia-lesoes.md"])
         (repo / "materias" / "rascunho.txt").write_text("solto", encoding="utf-8")
